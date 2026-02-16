@@ -273,7 +273,7 @@
         const FeatureItem = ({ feature }) => {
             return React.createElement('li',{className:"flex items-start"}, feature.type === 'check' ? React.createElement(CheckCircleIcon) : React.createElement(GiftIcon), React.createElement('span',{className:"text-gray-700 text-base"},feature.text));
         };
-        const PricingCard = ({ planTag, planTitle, features, originalPrice, discountPercent, price, paymentType, buttonText, isPopular = false }) => {
+        const PricingCard = ({ planTag, planTitle, features, originalPrice, discountPercent, price, paymentType, buttonText, buttonLink, isPopular = false }) => {
             const tagClass = isPopular ? "bg-gradient-to-r from-red-500 to-orange-500" : "bg-gradient-to-r from-blue-500 to-indigo-600";
             const buttonClass = isPopular ? "bg-gradient-to-b from-orange-400 to-red-500 shadow-orange-500/30" : "bg-gradient-to-b from-yellow-400 to-green-500 shadow-green-500/30";
             const popularContainerClasses = isPopular ? "lg:scale-110 z-10" : "lg:scale-100";
@@ -288,7 +288,7 @@
                         React.createElement('p',{className:"text-6xl font-black text-green-600 my-1"},`$${price.toString().replace('.',',')}`),
                         React.createElement('p',{className:"font-semibold text-gray-500"},paymentType)
                     ),
-                    React.createElement('a',{href:"#",className:`block w-full text-center text-white font-bold py-4 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 ${buttonClass}`},buttonText),
+                    React.createElement('a',{href:buttonLink,className:`block w-full text-center text-white font-bold py-4 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 ${buttonClass}`},buttonText),
                     React.createElement('div',{className:"flex items-center justify-center gap-6 mt-5 text-xs text-gray-500"},
                         React.createElement('div',{className:"flex items-center gap-1.5"},React.createElement(LockIcon),React.createElement('span', null, "Compra Segura")),
                         React.createElement('div',{className:"flex items-center gap-1.5"},React.createElement(GuaranteeIcon),React.createElement('span', null, "Garantía de 30 días"))
@@ -304,8 +304,8 @@
                 React.createElement('p',{className:"text-lg text-gray-600 mb-20 max-w-2xl mx-auto"},"Acceso inmediato y de por vida. Compra una vez y disfrútalo para siempre.")
             ),
             React.createElement('div',{className:"container mx-auto flex flex-col items-center justify-center gap-20 lg:flex-row lg:items-start lg:gap-8"},
-                React.createElement(PricingCard,{planTag:"OFERTA BÁSICA",planTitle:React.createElement(React.Fragment,null,React.createElement('h3',{className:"text-xl font-bold text-gray-800"},"+ de ",React.createElement('span',{className:"text-green-600"},"365 Recetas")," con ",React.createElement('span',{className:"text-yellow-500"},"Huevo"))),features:essentialFeatures,originalPrice:97,discountPercent:90,price:9.90,paymentType:"Pago único",buttonText:"¡COMPRAR AHORA!"}),
-                React.createElement(PricingCard,{planTag:"SÚPER OFERTA",planTitle:React.createElement(React.Fragment,null,React.createElement('h3',{className:"text-xl font-bold text-gray-800"},"+ ",React.createElement('span',{className:"text-green-600"},"500 Recetas con Huevo")),React.createElement('h4',{className:"text-2xl font-black text-orange-500"},"COMPLETO")),features:completeFeatures,originalPrice:147,discountPercent:92,price:12,paymentType:"Pago único",buttonText:"¡QUIERO EL PLAN COMPLETO!",isPopular:true})
+                React.createElement(PricingCard,{planTag:"OFERTA BÁSICA",planTitle:React.createElement(React.Fragment,null,React.createElement('h3',{className:"text-xl font-bold text-gray-800"},"+ de ",React.createElement('span',{className:"text-green-600"},"365 Recetas")," con ",React.createElement('span',{className:"text-yellow-500"},"Huevo"))),features:essentialFeatures,originalPrice:97,discountPercent:90,price:9.90,paymentType:"Pago único",buttonText:"¡COMPRAR AHORA!",buttonLink:"https://pay.kiwify.com/b3hBZUd"}),
+                React.createElement(PricingCard,{planTag:"SÚPER OFERTA",planTitle:React.createElement(React.Fragment,null,React.createElement('h3',{className:"text-xl font-bold text-gray-800"},"+ ",React.createElement('span',{className:"text-green-600"},"500 Recetas con Huevo")),React.createElement('h4',{className:"text-2xl font-black text-orange-500"},"COMPLETO")),features:completeFeatures,originalPrice:147,discountPercent:92,price:12,paymentType:"Pago único",buttonText:"¡QUIERO EL PLAN COMPLETO!",buttonLink:"https://pay.kiwify.com/dr5QNVR",isPopular:true})
             )
         );
       };
